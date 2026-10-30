@@ -105,7 +105,14 @@ function getStreams(tmdbId, type, season, episode) {
       //   console.log(`[4KHDHub] Item processing error: ${err.message}`);
       //   return [];
       // }
-      return [];
+      return [
+        {
+          "name": "DhakaFlix",            // Short identifier
+          "title": "The.100.S03E01.1080p.10bit.BluRay.5.1.x265.HEVC-MZABI.mkv",         // Display name
+          "url": "http://172.16.50.12/DHAKA-FLIX-12/TV-WEB-Series/TV%20Series%20%E2%99%A6%20%20S%20%20%E2%80%94%20%20Z/The%20100%20%28TV%20Series%202014%E2%80%932020%29%201080p%20%5BDual%20Audio%5D/Season%203/The.100.S03E01.1080p.10bit.BluRay.5.1.x265.HEVC-MZABI.mkv", // Playable URL
+          "quality": "1080p",              // 4K, 1080p, 720p, CAM 
+        }
+      ];
     }));
     const results = yield Promise.all(streamPromises);
     return results.reduce((acc, val) => acc.concat(val), []);
